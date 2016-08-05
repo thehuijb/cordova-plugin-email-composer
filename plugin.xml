@@ -86,10 +86,6 @@
             </feature>
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-        </config-file>
-
         <source-file
             src="src/android/EmailComposer.java"
             target-dir="src/de/appplant/cordova/emailcomposer" />
@@ -108,10 +104,6 @@
                 <param name="android-package"
                        value="de.appplant.cordova.emailcomposer.EmailComposer"/>
             </feature>
-        </config-file>
-
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         </config-file>
 
         <source-file

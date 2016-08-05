@@ -23,8 +23,6 @@
 
 package de.appplant.cordova.emailcomposer;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -97,9 +95,8 @@ public class EmailComposerImpl {
         // is possible with specified app
         boolean hasApp = isAppInstalled(id, ctx);
         // is possible in general
-        boolean hasEmailaccount = isEmailAccountConfigured(ctx);
 
-        return new boolean[] { hasApp, hasEmailaccount };
+        return new boolean[] { hasApp, true };
     }
 
     /**
@@ -500,31 +497,6 @@ public class EmailComposerImpl {
         }
 
         return resId;
-    }
-
-    /**
-     * If email apps are available.
-     *
-     * @param ctx
-     * The application context.
-     * @return
-     * true if available, otherwise false
-     */
-    private boolean isEmailAccountConfigured (Context ctx) {
-        AccountManager am  = AccountManager.get(ctx);
-
-        try {
-            for (Account account : am.getAccounts()) {
-                if (account.type.endsWith("mail")) {
-                    return true;
-                }
-            }
-        } catch (Exception e) {
-            Log.e(LOG_TAG, "Missing GET_ACCOUNTS permission.");
-            return true;
-        }
-
-        return false;
     }
 
     /**

@@ -95,11 +95,11 @@ public class EmailComposerImpl {
      */
     public boolean[] canSendMail (String id, Context ctx) {
         // is possible with specified app
-        boolean withScheme = isAppInstalled(id, ctx);
+        boolean hasApp = isAppInstalled(id, ctx);
         // is possible in general
-        boolean isPossible = isEmailAccountConfigured(ctx);
+        boolean hasEmailaccount = isEmailAccountConfigured(ctx);
 
-        return new boolean[] { isPossible, withScheme };
+        return new boolean[] { hasApp, hasEmailaccount };
     }
 
     /**
